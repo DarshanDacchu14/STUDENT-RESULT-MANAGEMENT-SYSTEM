@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="welcome-section text-center mb-4">
+            <h1 class="display-4 mb-3">Student Result Management System</h1>
+            <p class="lead">Enter your USN to view your academic results</p>
+        </div>
+        <div class="card shadow-lg">
+            <div class="card-body p-4">
+                <form method="POST" action="{{ url_for('get_result') }}">
+                    <div class="mb-4">
+                        <label for="usn" class="form-label">
+                            <i class="fas fa-id-card me-2"></i>Enter USN
+                        </label>
+                        <input type="text" class="form-control form-control-lg" id="usn" name="usn" required 
+                               placeholder="Enter your USN">
+                    </div>
+                    <div class="mb-4">
+                        <label for="dob" class="form-label">
+                            <i class="fas fa-calendar-alt me-2"></i>Date of Birth
+                        </label>
+                        <input type="date" class="form-control form-control-lg" id="dob" name="dob" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="captcha" class="form-label">
+                            <i class="fas fa-shield-alt me-2"></i>Enter CAPTCHA
+                        </label>
+                        <div class="d-flex align-items-center">
+                            <span class="captcha-text me-3">{{ captcha_text }}</span>
+                            <input type="text" class="form-control form-control-lg" id="captcha" name="captcha" required 
+                                   placeholder="Enter the text shown">
+                        </div>
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            <i class="fas fa-search me-2"></i>Get Results
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="features-section mt-5">
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <div class="feature-item">
+                        <i class="fas fa-chart-line fa-3x mb-3"></i>
+                        <h4>Academic Progress</h4>
+                        <p>Track your performance across subjects</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-item">
+                        <i class="fas fa-certificate fa-3x mb-3"></i>
+                        <h4>Grade Analysis</h4>
+                        <p>Detailed breakdown of your grades</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-item">
+                        <i class="fas fa-clock fa-3x mb-3"></i>
+                        <h4>Real-time Access</h4>
+                        <p>Instant access to your results</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 
